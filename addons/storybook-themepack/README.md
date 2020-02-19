@@ -6,7 +6,9 @@
 Storybook addon for custom themes based on CSS custom properties (CSS variables).
 
 # Demo
-Online demo [here](https://hcz.github.io/storybook-addons/), feel free to test this addon in your local environment: `npm run demo:themepack`.
+Online demo [here](https://hcz.github.io/storybook-addons/examples/storybook-themepack-example/demo), [code](https://github.com/hcz/storybook-addons/tree/master/examples/storybook-themepack-example)
+
+Feel free to test this addon in your local environment: `npm run demo`.
 
 ## Usage
 
@@ -114,11 +116,27 @@ addParameters({
 ### pack
 Main themepack configuration. Every field of this object is an array.
 
-Every option (for example, `brand`) contain sources for tooltips that can switch theme and preview your themed component.
+Every option (for example, `brand`) contain sources for tooltips that can switch theme and preview your themed component. Packs' content for any option is merged in tooltip options.
 
 Syntax:
 ````
 [ <theme name>, <pack(...)>, <pack(...)>, ... ]
+````
+
+Packs' syntax:
+````javascript
+pack(
+    // Object contains options for tooltip
+    {'theme option item name': 'css content'},
+    // Optional function for conditional drawing. Uses selected values for every option
+    ({yourThemeOption1, yourThemeOption2}) => true
+);
+
+pack(
+    // Array of options for tooltip
+    [{ label: 'theme option item name', css: 'css content' }]
+);
+
 ````
 
 ### icon
