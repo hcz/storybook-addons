@@ -33,11 +33,11 @@ const gaps = {
 };
 
 addParameters({
-	themepack: {
-		pack: {
+    themepack: {
+        pack: {
             gap: [ 'Gap', pack(gaps) ]
         }
-	},
+    },
 });
 
 ```
@@ -48,7 +48,7 @@ Also you can add per-story configuration:
 
 ```javascript
 storiesOf('Your Library 🎨', module)
-	.addParameters({
+    .addParameters({
         themepack: {
             pack: {
                 gap: [ 'Gap', pack(gaps) ]
@@ -56,7 +56,7 @@ storiesOf('Your Library 🎨', module)
         }
      })
 
-	.add('example', () => <p>example</p>);
+    .add('example', () => <p>example</p>);
 ```
 
 ## TypeScript
@@ -72,8 +72,8 @@ Example configuration
 import {pack} from 'storybook-themepack';
 
 addParameters({
-	themepack: {
-		pack: {
+    themepack: {
+        pack: {
             brand: ['Brand', pack({'My': defaultMyTheme, 'Project': defaultProjectTheme})],
             color: [
                 'Color',
@@ -88,26 +88,26 @@ addParameters({
             ],
             gap: ['Gap', pack({gapSmall, gapMedium})]
         },
-		icon: 'bookmark',
-		usePreview: true,
-		removeLabel: 'Remove',
-		sortFunction: (a, b) => {
-			if (a === 'brand') {
-				return 1;
-			}
-			return a === b ? 0 : a > b ? 1 : -1;
-		},
-		styles: {
-			preview: `
-				border-color: var(--color-bg-border);
-				color: var(--color-typo-brand);
-				background-color: var(--color-bg-default);
-			`,
-			iframe: `
-				background-color: var(--color-bg-default);
-			`
-		}
-	},
+        icon: 'bookmark',
+        usePreview: true,
+        removeLabel: 'Remove',
+        sortFunction: (a, b) => {
+            if (a === 'brand') {
+                return 1;
+            }
+            return a === b ? 0 : a > b ? 1 : -1;
+        },
+        styles: {
+            preview: `
+                border-color: var(--color-bg-border);
+                color: var(--color-typo-brand);
+                background-color: var(--color-bg-default);
+            `,
+            iframe: `
+                background-color: var(--color-bg-default);
+            `
+        }
+    },
 });
 ```
 
