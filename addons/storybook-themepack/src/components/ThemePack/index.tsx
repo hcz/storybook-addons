@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import React, {Fragment, useState} from 'react';
+import React, {Fragment, FC, useState} from 'react';
 import {jsx} from '@emotion/core';
 import {Combo, Consumer} from '@storybook/api';
 import {TooltipLinkList, WithTooltip} from '@storybook/components';
@@ -16,7 +16,7 @@ export const mapper = ({api, state}: Combo): Config<string> => {
 	return story ? api.getParameters(story.id, PARAM_KEY) : {};
 };
 
-export const ThemePack = ({api}: {api: API}) => {
+export const ThemePack: FC<{api: API}> = ({api}) => {
 	const [pristine, setPristine] = useState(true);
 
 	const updateIframe = async (state: AddonState) => {

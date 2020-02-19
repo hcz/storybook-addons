@@ -35,7 +35,7 @@ export type Config<S extends string> = {
 	styles: {
 		preview: string;
 		iframe: string;
-	}
+	};
 }
 
 export type Link = {

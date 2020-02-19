@@ -4,7 +4,7 @@ import {Condition, PackedThemePart, PackOptions} from './types';
  * Creates pack with conditional rendering for themepack option
  */
 export function pack<S extends string>(options: PackOptions, condition?: Condition<S>): PackedThemePart<S> | undefined {
-	let pack: PackedThemePart<S> = {
+	const pack: PackedThemePart<S> = {
 		options: []
 	};
 

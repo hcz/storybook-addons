@@ -10,6 +10,7 @@
 		"check": "lerna exec --stream -- tsc --noEmit --project ./tsconfig.json",
 		"test": "lerna run test --stream --parallel",
 		"demo": "lerna run start --stream --parallel",
+		"build:demo": "lerna run build --stream --parallel",
 		"demo:clean": "lerna run clean --stream --parallel",
 		"postinstall": "npm run bootstrap && npm run build",
 		"eslint": "eslint --ext .js,.jsx,.ts,.tsx . --cache --cache-location ./node_modules/.cache/eslint"
@@ -48,7 +49,7 @@
 	},
 	"husky": {
 		"hooks": {
-			"pre-commit": "npm run eslint && npm run check && npm run demo:clean && npm run demo && git add ./examples/**/demo"
+			"pre-commit": "npm run eslint && npm run check && npm run demo:clean && npm run build:demo && git add ./examples/**/demo"
 		}
 	}
 }

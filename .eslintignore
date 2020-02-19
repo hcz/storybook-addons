@@ -1,3 +1,8 @@
 node_modules
-**/**/node_modules
-**/**/dist
+
+addons/**/dist
+addons/**/node_modules
+
+examples/**/dist
+examples/**/demo
+examples/**/node_modules
