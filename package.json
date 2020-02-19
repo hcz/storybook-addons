@@ -1,0 +1,55 @@
+{
+	"name": "storybook-addons",
+	"description": "Storybook addons",
+	"scripts": {
+		"lerna": "lerna",
+		"bootstrap": "lerna bootstrap --hoist",
+		"clean": "lerna clean",
+		"build": "lerna exec --stream -- tsc --project ./tsconfig.json",
+		"build:clean": "lerna exec --stream --parallel -- rm -rf dist tsconfig.tsbuildinfo",
+		"check": "lerna exec --stream -- tsc --noEmit --project ./tsconfig.json",
+		"test": "lerna run test --stream --parallel",
+		"demo": "lerna run start --stream --parallel",
+		"build:demo": "lerna run build --stream --parallel",
+		"demo:clean": "lerna run clean --stream --parallel",
+		"postinstall": "npm run bootstrap && npm run build",
+		"eslint": "eslint --ext .js,.jsx,.ts,.tsx . --cache --cache-location ./node_modules/.cache/eslint"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/hcz/storybook-addons.git"
+	},
+	"author": "Serge Osipov <cubisto@ya.ru>",
+	"bugs": {
+		"url": "https://github.com/hcz/storybook-addons/issues"
+	},
+	"homepage": "https://github.com/hcz/storybook-addons#readme",
+	"dependencies": {
+		"@storybook/addons": "^5.3.12",
+		"@storybook/api": "^5.3.12",
+		"@storybook/components": "^5.3.12",
+		"lerna": "^3.20.2",
+		"storybook-themepack": "file:addons/storybook-themepack"
+	},
+	"devDependencies": {
+		"@storybook/react": "^5.3.13",
+		"@storybook/theming": "^5.3.13",
+		"@typescript-eslint/eslint-plugin": "2.14.0",
+		"@typescript-eslint/parser": "2.14.0",
+		"awesome-typescript-loader": "^5.2.1",
+		"babel-loader": "^8.0.6",
+		"eslint": "^6.8.0",
+		"eslint-plugin-react": "^6.10.3",
+		"husky": "^4.2.3",
+		"rimraf": "^3.0.2",
+		"typescript": "^3.7.5"
+	},
+	"peerDependencies": {
+		"react": "^16.8.0"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run eslint && npm run check && npm run demo:clean && npm run build:demo && git add ./examples/**/demo"
+		}
+	}
+}

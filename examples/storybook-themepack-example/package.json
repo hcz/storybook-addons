@@ -1,0 +1,13 @@
+{
+	"name": "storybook-themepack-example",
+	"description": "Storybook themepack addon example",
+	"author": "Serge Osipov <cubisto@ya.ru>",
+	"scripts": {
+		"test": "start-storybook -c .storybook --smoke-test",
+		"start": "start-storybook -c .storybook",
+		"clean": "rimraf ./demo",
+		"build": "build-storybook -c .storybook -o ./demo"
+	},
+	"private": true,
+	"license": "MIT"
+}

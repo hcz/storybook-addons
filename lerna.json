@@ -1,0 +1,14 @@
+{
+  "packages": [
+    "addons/*",
+    "examples/*"
+  ],
+  "version": "independent",
+  "command": {
+    "version": {
+      "includeMergedTags": true,
+      "gitTagVersion": false,
+      "push": false
+    }
+  }
+}
