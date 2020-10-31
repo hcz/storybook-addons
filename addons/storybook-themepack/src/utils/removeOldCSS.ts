@@ -4,6 +4,7 @@ import {CssOperationArgs} from '../types';
  * Removes style tag from the storybook component preview iframe
  *
  * @example
+ *
  * // This code will remove tag <style data-brand="themepack">color: red;</style> from the iframe
  * removeOldCSS({dataAttribute: 'brand', iframeContent})
  *

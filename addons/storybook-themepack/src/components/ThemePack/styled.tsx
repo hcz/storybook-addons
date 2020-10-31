@@ -3,7 +3,8 @@ import {IconButton, Icons} from '@storybook/components';
 
 export const StyledButton = styled(IconButton)<any>({
 	display: 'inline-flex',
-	alignItems: 'center'
+	alignItems: 'center',
+	padding: '0 6px'
 }) as any;
 
 export const StyledLabel = styled.div<object>(({theme}: any) => ({

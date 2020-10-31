@@ -4,6 +4,7 @@ import {CssOperationArgs} from '../types';
  * Adds style tag to the storybook component preview iframe
  *
  * @example
+ *
  * // This code will add tag <style data-brand="themepack">color: red;</style> inside the iframe
  * addCSS({dataAttribute: 'brand', iframeContent, style: 'color: red;'})
  *

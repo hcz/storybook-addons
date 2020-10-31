@@ -29,9 +29,9 @@ export type ThemePack<S extends string> = {
 export type Config<S extends string> = {
 	pack: ThemePack<S>;
 	icon: string;
-	usePreview: boolean;
-	removeLabel: string;
-	sortFunction: (a: string, b: string) => number;
+	usePreview?: boolean;
+	labelForClear?: string;
+	sortFunction?: (a: string, b: string) => number;
 	styles: {
 		preview: string;
 		iframe: string;
@@ -41,9 +41,9 @@ export type Config<S extends string> = {
 export type Link = {
 	id: string;
 	title: string;
-	active: boolean;
-	right: any;
-	onClick: () => void;
+	active?: boolean;
+	right?: any;
+	onClick?: () => void;
 }
 export type LinksContent = Link[];
 

@@ -7,7 +7,7 @@
 		"clean": "lerna clean",
 		"build": "lerna exec --stream -- tsc --project ./tsconfig.json",
 		"build:clean": "lerna exec --stream --parallel -- rm -rf dist tsconfig.tsbuildinfo",
-		"check": "lerna exec --stream -- tsc --noEmit --project ./tsconfig.json",
+		"check": "lerna exec --stream -- tsc --noEmit --composite false --project ./tsconfig.json",
 		"test": "lerna run test --stream --parallel",
 		"demo": "lerna run start --stream --parallel",
 		"build:demo": "lerna run build --stream --parallel",
@@ -32,8 +32,9 @@
 		"storybook-themepack": "file:addons/storybook-themepack"
 	},
 	"devDependencies": {
-		"@storybook/react": "^5.3.13",
-		"@storybook/theming": "^5.3.13",
+		"@storybook/react": "^5.3.12",
+		"@storybook/theming": "^5.3.12",
+		"@types/lodash": "^4.14.160",
 		"@typescript-eslint/eslint-plugin": "2.14.0",
 		"@typescript-eslint/parser": "2.14.0",
 		"awesome-typescript-loader": "^5.2.1",

@@ -8,7 +8,7 @@ addParameters({
 		pack: themepack,
 		icon: 'bookmark', // default 'mirror'
 		usePreview: true, // default true
-		removeLabel: 'Remove', // default '-'
+		labelForClear: 'Remove', // default '-'
 		sortFunction: (a, b) => {
 			if (a === 'brand') {
 				return 1;
