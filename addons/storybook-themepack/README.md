@@ -13,7 +13,7 @@ Online demo [link here](https://hcz.github.io/storybook-addons/examples/storyboo
 
 Demo source [code](https://github.com/hcz/storybook-addons/tree/master/examples/storybook-themepack-example).
 
-![Example](./docs/assets/preview.png)
+![Example](../../docs/assets/preview.png)
 
 Feel free to test this addon in your local environment: `npm run demo`.
 
