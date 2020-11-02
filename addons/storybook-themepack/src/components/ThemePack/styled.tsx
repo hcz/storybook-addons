@@ -6,7 +6,7 @@ export const StyledButton = styled(IconButton)<any>({
 	alignItems: 'center'
 }) as any;
 
-export const StyledLabel = styled.div<object>(({theme}: any) => ({
+export const StyledLabel = styled.div<any>(({theme}: any) => ({
 	fontSize: theme.typography.size.s2 - 1
 }));
 

@@ -37,6 +37,7 @@ And add some configuration:
 import {addParameters} from '@storybook/react';
 
 const gaps = {
+    // Some pretty plain CSS in this values
     gapSmall: '--gap: 12px;',
     gapMedium: '--gap: 16px;'
 };
@@ -70,7 +71,7 @@ storiesOf('Your Library 🎨', module)
 
 ## TypeScript
 
-You can find an example repo here: `examples/storybook-themepack-example`
+You can find an example repo here: [`examples/storybook-themepack-example`](https://github.com/hcz/storybook-addons/tree/master/examples/storybook-themepack-example)
 
 ## Configuration and options
 
@@ -82,6 +83,12 @@ import {pack} from 'storybook-themepack';
 
 addParameters({
     themepack: {
+        // This items will be preloaded
+        preloadedState: {
+            brand: 'My'
+        },
+
+        // All the styles
         pack: {
             brand: ['Brand', pack({'My': defaultMyTheme, 'Project': defaultProjectTheme})],
             color: [
@@ -97,15 +104,25 @@ addParameters({
             ],
             gap: ['Gap', pack({gapSmall, gapMedium})]
         },
-        icon: 'bookmark',
+
+        // Themepack icon
+        icon: 'mirror',
+
+        // Use preview sign for themepack contents
         usePreview: true,
-        removeLabel: 'Remove',
+
+        // Caption for clear item
+        labelForClear: '-',
+
+        // If there is `sortFunction` themepack uses it to sort main panel menu items
         sortFunction: (a, b) => {
             if (a === 'brand') {
                 return 1;
             }
             return a === b ? 0 : a > b ? 1 : -1;
         },
+
+        // Custom styles for preview items and for the storybook preview iframe
         styles: {
             preview: `
                 border-color: var(--color-bg-border);
@@ -160,7 +177,7 @@ You can set up preview styles in configuration property `styles.preview`.
 
 Default value is `true`.
 
-### removeLabel
+### labelForClear
 Text for the element that clears tooltip.
 
 Default value is `-`.

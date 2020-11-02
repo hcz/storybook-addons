@@ -9,7 +9,7 @@ import {CssOperationArgs} from '../types';
  * removeOldCSS({dataAttribute: 'brand', iframeContent})
  *
  */
-export function removeOldCSS({dataAttribute, iframeContent}: CssOperationArgs) {
+export function removeOldCSS({dataAttribute, iframeContent}: CssOperationArgs): void {
 	const dataCSS = iframeContent.querySelectorAll(`[data-${dataAttribute}]`);
 
 	Array.prototype.forEach.call(dataCSS, () => {

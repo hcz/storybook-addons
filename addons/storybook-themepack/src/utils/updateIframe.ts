@@ -6,7 +6,7 @@ import {addCSS} from './addCSS';
 /**
  * Updates iframe styles
  */
-export const updateIframe = (name: string, css?: string) => {
+export const updateIframe = (name: string, css?: string): void => {
 	const iframe = document.getElementById(IFRAME_ID) as HTMLIFrameElement;
 	const iframeContent = getIframeContent(iframe);
 
