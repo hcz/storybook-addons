@@ -3,10 +3,17 @@
 
 [![npm version](https://badge.fury.io/js/storybook-themepack.svg)](https://badge.fury.io/js/storybook-themepack)
 
-Storybook addon for custom themes based on CSS custom properties (CSS variables).
+Storybook addon for custom themes.
 
-# Demo
-Online demo [here](https://hcz.github.io/storybook-addons/examples/storybook-themepack-example/demo), [code](https://github.com/hcz/storybook-addons/tree/master/examples/storybook-themepack-example)
+Ideal for themes based on CSS custom properties (CSS variables).
+
+## Demo
+
+Online demo [link here](https://hcz.github.io/storybook-addons/examples/storybook-themepack-example/demo).
+
+Demo source [code](https://github.com/hcz/storybook-addons/tree/master/examples/storybook-themepack-example).
+
+![Example](./docs/assets/preview.png)
 
 Feel free to test this addon in your local environment: `npm run demo`.
 
@@ -142,12 +149,14 @@ pack(
 ### icon
 Icon for the first item.
 
-Variants are in `@storybook/components/dist/icon/icon.d.ts`.
+Variants are in [`@storybook/components`](https://github.com/storybookjs/storybook/blob/next/lib/components/src/icon/icons.tsx).
 
 Default value is `mirror`.
 
 ### usePreview
 Adds preview for every option of the tooltips.
+
+You can set up preview styles in configuration property `styles.preview`.
 
 Default value is `true`.
 
@@ -168,8 +177,6 @@ It contains styles for a themepack item preview inside every tooltip and global 
 
 Default value is not set.
 
-## More
+## TODO
 
-- Storybook [addons in Github](https://github.com/search?l=TypeScript&o=desc&q=storybook+addon&s=stars&type=Repositories)
-- Packages [depending on @storybook/api](https://www.npmjs.com/browse/depended/@storybook/api)
-- Packages [depending on @storybook/components](https://www.npmjs.com/browse/depended/@storybook/components)
+[ ] Update Readme and examples to Storybook v6

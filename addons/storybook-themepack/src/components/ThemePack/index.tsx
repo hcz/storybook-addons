@@ -4,7 +4,7 @@ import {jsx} from '@emotion/core';
 import {TooltipLinkList, WithTooltip} from '@storybook/components';
 import {useAddonState, useParameter} from '@storybook/api';
 
-import {StyledButton, StyledLabel} from './styled';
+import {StyledButton, StyledLabel, StyledIcon} from './styled';
 import {Preview} from '../Preview';
 import {ADDON_ID, PARAM_KEY} from '../../constants';
 import {updateIframe} from '../../utils';
@@ -12,15 +12,15 @@ import {updateIframe} from '../../utils';
 const ClearItem = ({labelForClear, usePreview, styles}: any = {}, onClick: any) => ({
 	id: 'None',
 	title: labelForClear,
-	right: usePreview && (<Preview theme='' style={styles.preview}/>),
 	onClick
 });
 
 export const Theme: React.FC = () => {
 	const {
-		default: preloadedState,
+		preloadedState,
 		pack,
 		styles,
+		icon,
 		labelForClear,
 		usePreview,
 		sortFunction
@@ -43,9 +43,9 @@ export const Theme: React.FC = () => {
 		: pack && Object.keys(pack);
 
 	return (
-		<div>
+		<React.Fragment>
 			{
-				categories && categories.map((category: string) => {
+				categories && categories.map((category, categoryNumber) => {
 					if (!pack[category]) {
 						return null;
 					}
@@ -126,6 +126,7 @@ export const Theme: React.FC = () => {
 							<StyledButton
 								active={state[category]}
 							>
+								{categoryNumber === 0 && icon && <StyledIcon icon={icon} />}
 								<StyledLabel>
 									{state[category] || name}
 								</StyledLabel>
@@ -134,6 +135,6 @@ export const Theme: React.FC = () => {
 					) : null
 				})
 			}
-		</div>
+		</React.Fragment>
 	)
 }

@@ -5,11 +5,11 @@ import {themepack} from './themepack';
 
 addParameters({
 	themepack: {
-		default: {
+		preloadedState: {
 			brand: 'My'
 		},
 		pack: themepack,
-		icon: 'bookmark', // default 'mirror'
+		icon: 'mirror', // default 'mirror'
 		usePreview: true, // default true
 		labelForClear: 'Remove', // default '-'
 		sortFunction: (a, b) => {
