@@ -17,9 +17,8 @@ const ClearItem = ({labelForClear, usePreview, styles}: any = {}, onClick: any) 
 });
 
 export const Theme: React.FC = () => {
-	const [state, setState] = useAddonState<Record<string, any>>(ADDON_ID, {});
-
 	const {
+		default: preloadedState,
 		pack,
 		styles,
 		labelForClear,
@@ -32,6 +31,12 @@ export const Theme: React.FC = () => {
 			updateIframe('iframe', styles.iframe);
 		}
 	}, [styles]);
+
+	const [state, setState] = useAddonState<Record<string, any>>(ADDON_ID, {});
+
+	React.useEffect(() => {
+		setState({pristine: true});
+	}, []);
 
 	const categories = typeof sortFunction === 'function'
 		? pack && Object.keys(pack).sort(sortFunction)
@@ -47,6 +52,9 @@ export const Theme: React.FC = () => {
 
 					const [name, ...config] = pack[category];
 
+					let preloadedCSS = undefined;
+					const preloadedItemLabel = preloadedState[category];
+
 					const tooltipContent = config
 						.reduce((accumulator: any, {options, condition}: any = {}) => {
 							options.map(({css, label}: any) => {
@@ -56,7 +64,7 @@ export const Theme: React.FC = () => {
 
 								if (css && label) {
 									accumulator.push({
-										id: category,
+										id: label,
 										title: label,
 										active: state[category] === label,
 										right: usePreview && (<Preview theme={css} style={styles.preview}/>),
@@ -67,7 +75,11 @@ export const Theme: React.FC = () => {
 											}));
 											updateIframe(category, css);
 										}
-									})
+									});
+
+									if (label === preloadedItemLabel) {
+										preloadedCSS = css;
+									}
 								}
 							});
 							return accumulator;
@@ -82,6 +94,16 @@ export const Theme: React.FC = () => {
 							})
 						);
 
+					// Select preloaded state item
+					if (state.pristine && preloadedItemLabel && preloadedCSS) {
+						setState((state) => ({
+							...state,
+							pristine: false,
+							[category]: preloadedItemLabel
+						}));
+						updateIframe(category, preloadedCSS);
+					}
+
 					const isInTooltip = tooltipContent.some(({title}: any) => title === state[category]);
 
 					// Remove items that was previously selected but disappeared
@@ -95,6 +117,7 @@ export const Theme: React.FC = () => {
 
 					return tooltipContent.length > 1 ? (
 						<WithTooltip
+							key={category}
 							placement='top'
 							trigger='click'
 							tooltip={<TooltipLinkList links={tooltipContent}/>}

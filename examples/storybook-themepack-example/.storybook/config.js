@@ -5,6 +5,9 @@ import {themepack} from './themepack';
 
 addParameters({
 	themepack: {
+		default: {
+			brand: 'My'
+		},
 		pack: themepack,
 		icon: 'bookmark', // default 'mirror'
 		usePreview: true, // default true
